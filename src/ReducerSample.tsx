@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useSampleState, useSampleDispatch } from './SampleContext';
 
 type Color = 'red' | 'orange' | 'yellow';
 
@@ -43,12 +43,8 @@ function reducer(state: State, action: Action) {
 }
 
 export default function ReducerSample() {
-  const [state, dispatch] = useReducer(reducer, {
-    count: 0,
-    text: 'hello',
-    color: 'red',
-    isGood: true,
-  });
+  const state = useSampleState();
+  const dispatch = useSampleDispatch();
   const setCount = () => dispatch({ type: 'SET_COUNT', count: 5 }); // count 를 넣지 않으면 에러발생
   const setText = () => dispatch({ type: 'SET_TEXT', text: 'bye' }); // text 를 넣지 않으면 에러 발생
   const setColor = () => dispatch({ type: 'SET_COLOR', color: 'orange' }); // orange 를 넣지 않으면 에러 발생

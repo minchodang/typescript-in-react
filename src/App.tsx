@@ -1,5 +1,10 @@
 import ReducerSample from './ReducerSample';
+import SampleProvider from './SampleContext';
 
 export default function App() {
-  return <ReducerSample />;
+  return (
+    <SampleProvider>
+      <ReducerSample />;
+    </SampleProvider>
+  );
 }
